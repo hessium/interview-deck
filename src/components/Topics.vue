@@ -2,7 +2,7 @@
 import { inject, defineProps } from "vue";
 import { type TopicNode } from "../App.vue";
 
-const props = defineProps<{
+const {parentPath, nodes} = defineProps<{
   nodes: TopicNode[];
   parentPath?: string;
 }>();
@@ -17,7 +17,7 @@ const { expanded, toggle } = inject('expandedNodes') as {
 };
 
 const getNodePath = (node: TopicNode) => {
-  return props.parentPath ? `${props.parentPath}/${node.title}` : node.title;
+  return parentPath ? `${parentPath}/${node.title}` : node.title;
 };
 
 const handleToggle = (node: TopicNode, path: string) => {

@@ -19,6 +19,70 @@
               "content": "content/posix_api_and_process_interface.md"
             }
           ]
+        },
+        {
+          "title": "Вопросы по сеть",
+          "id": "linux_networks",
+          "children": [
+            {
+              "title": "Команды и утилиты для работы с сетью",
+              "id": "network_commands_and_tools",
+              "content": "content/network_commands_and_tools.md"
+            },
+            {
+              "title": "Сетевой стек и соединения в Linux",
+              "id": "network_stack_and_connections",
+              "content": "content/network_stack_and_connections.md"
+            }
+          ]
+        },
+        {
+          "title": "Прерывания и многопоточность",
+          "id": "linux_interrupts_multithreading",
+          "children": [
+            {
+              "title": "Прерывания и сигналы в Linux",
+              "id": "interrupts_and_signals",
+              "content": "content/interrupts_and_signals.md"
+            },
+            {
+              "title": "Гонки данных и работа с памятью",
+              "id": "memory_race_conditions",
+              "content": "content/memory_race_conditions.md"
+            }
+          ]
+        },
+        {
+          "title": "Сигналы и сервисы",
+          "id": "linux_signals_services",
+          "children": [
+            {
+              "title": "Unix-сигналы и их использование",
+              "id": "signals_and_kill",
+              "content": "content/signals_and_kill.md"
+            },
+            {
+              "title": "Работа с systemd-сервисами",
+              "id": "systemd_services",
+              "content": "content/systemd_services.md"
+            }
+          ]
+        },
+        {
+          "title": "Системные вызовы и процессы",
+          "id": "linux_system_calls_and_processes",
+          "children": [
+            {
+              "title": "Память процесса в Linux",
+              "id": "process_memory",
+              "content": "content/process_memory.md"
+            },
+            {
+              "title": "Основы системных вызовов (syscalls) в Linux",
+              "id": "syscalls_basics",
+              "content": "content/syscalls_basics.md"
+            }
+          ]
         }
       ]
     }
