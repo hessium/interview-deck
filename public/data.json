@@ -1,0 +1,21 @@
+{
+  "toc": [
+    {
+      "title": "Linux",
+      "id": "linux",
+      "children": [
+        {
+          "title": "Базовые вопросы",
+          "id": "linux_base",
+          "children": [
+            {
+              "title": "Файловая система и хранилище",
+              "id": "linux_file_system_and_storage",
+              "content": "content/file_system_and_storage.md"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
