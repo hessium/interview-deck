@@ -1,41 +1,35 @@
 <script setup lang="ts">
+import {onMounted, ref, watch} from "vue";
+import MarkdownRenderer from "./MarkdownRenderer.vue";
 
-import {onMounted, ref} from "vue";
-import {marked} from "marked";
-
-const {title, description} = defineProps<{
-  title?: string;
+const { description} = defineProps<{
   description?: string;
 }>();
 
 
-const htmlContent = ref<string>("");
+const htmlContent = ref<string | (() => Promise<string>)>("");
+
+function loadContent() {
+  if (!description) return;
+
+  return fetch(description)
+     .then(res => res.text())
+     .then(md => {
+       htmlContent.value = md
+     })
+     .catch(error => console.error('Ошибка загрузки:', error))
+}
 
 onMounted(() => {
+  loadContent()
+})
 
-  if (!description) return;
-  console.log(description)
-  fetch(description)
-      .then(res => res.text())
-      .then(md => {
-        htmlContent.value = marked.parse(md, {
-          breaks: true,
-          gfm: true
-        });
-      })
-      .catch(error => console.error('Ошибка загрузки:', error));
-});
-
+watch(() => description, loadContent);
 </script>
 
 <template>
   <div class="questions-container">
-    <h1 v-if="title">{{ title }}</h1>
-    <div
-        class="content"
-        v-if="htmlContent"
-        v-html="htmlContent"
-    ></div>
+    <MarkdownRenderer v-if="htmlContent" :content="htmlContent"/>
   </div>
 </template>
 

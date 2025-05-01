@@ -1,30 +1,33 @@
 <script setup lang="ts">
-import { marked } from 'marked';
+import {onMounted, ref, watch} from 'vue';
+import {marked} from 'marked';
 import DOMPurify from 'dompurify';
-import hljs from 'highlight.js';
-import { ref, watch } from 'vue';
 
-marked.setOptions({
-  highlight: (code:string) => {
-    return hljs.highlightAuto(code).value;
-  }
-});
-
-const props = defineProps<{
-  content: string;
+const {content} = defineProps<{
+  content: string | (() => Promise<string>);
 }>();
 
 const htmlContent = ref('');
 
-const renderMarkdown = (md: string) => {
-  const rawHtml = marked.parse(md);
-  const cleanHtml = DOMPurify.sanitize(rawHtml);
-  return cleanHtml;
+const renderMarkdown = async (md: string) => {
+  const rawHtml = await marked.parse(md);
+  return DOMPurify.sanitize(rawHtml);
 };
 
-watch(() => props.content, (newVal) => {
-  htmlContent.value = renderMarkdown(newVal);
-}, { immediate: true });
+const loadContent = async () => {
+  try {
+    const md = typeof content === 'string'
+        ? content
+        : await content();
+    htmlContent.value = await renderMarkdown(md);
+  } catch (error) {
+    console.error('Ошибка загрузки контента:', error);
+    htmlContent.value = '<p>Ошибка загрузки контента</p>';
+  }
+};
+
+onMounted(loadContent);
+watch(() => content, loadContent, { deep: true });
 </script>
 
 <template>

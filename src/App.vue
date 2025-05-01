@@ -49,7 +49,6 @@ onMounted(() => {
       .then(json => data.value = json)
       .catch(error => console.error('Ошибка загрузки:', error));
 });
-
 </script>
 
 <template>
@@ -65,7 +64,6 @@ onMounted(() => {
       <main class="main">
         <Questions
             v-if="selectedTopic?.content"
-            :title="selectedTopic.title"
             :description="selectedTopic.content"
         />
         <h1 v-else>Вопросы для подоготовки в собеседованию</h1>

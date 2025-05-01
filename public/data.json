@@ -10,8 +10,13 @@
           "children": [
             {
               "title": "Файловая система и хранилище",
-              "id": "linux_file_system_and_storage",
+              "id": "file_system_and_storage",
               "content": "content/file_system_and_storage.md"
+            },
+            {
+              "title": "POSIX API и интерфейс взаимодействия с процессами",
+              "id": "posix_api_and_process_interface",
+              "content": "content/posix_api_and_process_interface.md"
             }
           ]
         }
