@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import {computed, defineProps} from "vue";
+import {computed, defineProps,} from "vue";
 import {type TopicNode, useTopics} from "../stores/topics.ts";
 
-const topics = useTopics();
+const topicsStore = useTopics();
 
 const {parentPath, nodes} = defineProps<{
   nodes: TopicNode[];
   parentPath?: string;
 }>();
-
 
 const getNodePath = (node: TopicNode) => {
   return parentPath ? `${parentPath}/${node.title}` : node.title;
@@ -16,42 +15,39 @@ const getNodePath = (node: TopicNode) => {
 
 const handleToggle = (node: TopicNode, path: string) => {
   if (node.children) {
-    topics.toggleNodeExpansion(path);
+    topicsStore.toggleNodeExpansion(path);
   }
-};
-
-const isExpanded = (path: string) => {
-  return topics.expandedPaths.has(path);
 };
 
 const level = computed(() => {
   return parentPath ? parentPath.split('/').length : 0;
 });
+
 </script>
 
 <template>
-  <ul class="node-list">
+  <ul class="node-list"  tabindex="0">
     <li class="node-list__item" v-for="node in nodes" :key="node.title">
-      <div
+      <button
           class="node"
-          @click="topics.selectTopic(node.id!)"
+          @click="topicsStore.selectTopic(node.id!)"
           :class="{
           'clickable': node.id || node.children,
-          'expanded': isExpanded(getNodePath(node)),
+          'expanded': topicsStore.isExpanded(getNodePath(node)),
           'has-children': node.children,
-          'selected': node.id === topics.selectedId,
+          'selected': node.id === topicsStore.selectedId,
         }"
       >
-        <h3 class="node__title" :style="{ fontSize: `${1.2 - 0.2 * level}rem`}">
+        <span class="node__title" :style="{ fontSize: `${1.2 - 0.2 * level}rem`}">
           {{ node.title }}
-        </h3>
+        </span>
 
         <button
             v-if="node.children"
             @click.stop="handleToggle(node, getNodePath(node)) "
             class="toggle"
             :class="{
-              opened: isExpanded(getNodePath(node))
+              opened: topicsStore.isExpanded(getNodePath(node))
             }"
         >
           <svg
@@ -65,21 +61,22 @@ const level = computed(() => {
             </g>
           </svg>
         </button>
-      </div>
-      <div v-if="node.children && isExpanded(getNodePath(node))" class="children">
+      </button>
+      <div v-if="node.children && topicsStore.isExpanded(getNodePath(node))" class="children">
         <Topics
             :nodes="node.children"
             :parent-path="getNodePath(node)"
-            @click="topics.selectTopic(node.id!)"
+            @click="topicsStore.selectTopic(node.id!)"
         />
       </div>
     </li>
   </ul>
 </template>
 
-<style>
+<style scoped>
 .node {
   cursor: pointer;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -89,6 +86,11 @@ const level = computed(() => {
   border-radius: 5px;
   background-color: transparent;
   transition: background-color .3s ease-out;
+}
+
+.node__title {
+  font-weight: 600;
+  text-align: left;
 }
 
 .toggle {

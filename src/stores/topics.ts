@@ -106,6 +106,10 @@ export const useTopics = defineStore('topics', {
 
         collapseAllNodes(): void {
             this.expandedPaths = new Set();
+        },
+
+        isExpanded(path: string): boolean {
+            return this.expandedPaths.has(path);
         }
     },
 })
