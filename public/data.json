@@ -11,12 +11,12 @@
             {
               "title": "Файловая система и хранилище",
               "id": "file_system_and_storage",
-              "content": "content/file_system_and_storage.md"
+              "contentPath": "content/file_system_and_storage.md"
             },
             {
               "title": "POSIX API и интерфейс взаимодействия с процессами",
               "id": "posix_api_and_process_interface",
-              "content": "content/posix_api_and_process_interface.md"
+              "contentPath": "content/posix_api_and_process_interface.md"
             }
           ]
         },
@@ -27,12 +27,12 @@
             {
               "title": "Команды и утилиты для работы с сетью",
               "id": "network_commands_and_tools",
-              "content": "content/network_commands_and_tools.md"
+              "contentPath": "content/network_commands_and_tools.md"
             },
             {
               "title": "Сетевой стек и соединения в Linux",
               "id": "network_stack_and_connections",
-              "content": "content/network_stack_and_connections.md"
+              "contentPath": "content/network_stack_and_connections.md"
             }
           ]
         },
@@ -43,12 +43,12 @@
             {
               "title": "Прерывания и сигналы в Linux",
               "id": "interrupts_and_signals",
-              "content": "content/interrupts_and_signals.md"
+              "contentPath": "content/interrupts_and_signals.md"
             },
             {
               "title": "Гонки данных и работа с памятью",
               "id": "memory_race_conditions",
-              "content": "content/memory_race_conditions.md"
+              "contentPath": "content/memory_race_conditions.md"
             }
           ]
         },
@@ -59,12 +59,12 @@
             {
               "title": "Unix-сигналы и их использование",
               "id": "signals_and_kill",
-              "content": "content/signals_and_kill.md"
+              "contentPath": "content/signals_and_kill.md"
             },
             {
               "title": "Работа с systemd-сервисами",
               "id": "systemd_services",
-              "content": "content/systemd_services.md"
+              "contentPath": "content/systemd_services.md"
             }
           ]
         },
@@ -75,12 +75,12 @@
             {
               "title": "Память процесса в Linux",
               "id": "process_memory",
-              "content": "content/process_memory.md"
+              "contentPath": "content/process_memory.md"
             },
             {
               "title": "Основы системных вызовов (syscalls) в Linux",
               "id": "syscalls_basics",
-              "content": "content/syscalls_basics.md"
+              "contentPath": "content/syscalls_basics.md"
             }
           ]
         }

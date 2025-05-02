@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import {onMounted, ref, watch} from 'vue';
-import {marked} from 'marked';
+import { onMounted, ref, watch } from 'vue';
+import { marked } from 'marked';
 import DOMPurify from 'dompurify';
 
-const {content} = defineProps<{
-  content: string | (() => Promise<string>);
+const { content } = defineProps<{
+  content: string | null;
 }>();
 
 const htmlContent = ref('');
@@ -16,13 +16,13 @@ const renderMarkdown = async (md: string) => {
 
 const loadContent = async () => {
   try {
-    const md = typeof content === 'string'
-        ? content
-        : await content();
-    htmlContent.value = await renderMarkdown(md);
+    if (!content) {
+      return;
+    }
+
+    htmlContent.value = await renderMarkdown(content);
   } catch (error) {
     console.error('Ошибка загрузки контента:', error);
-    htmlContent.value = '<p>Ошибка загрузки контента</p>';
   }
 };
 
@@ -31,10 +31,13 @@ watch(() => content, loadContent, { deep: true });
 </script>
 
 <template>
-    <div class="markdown-content" v-html="htmlContent"></div>
+  <div class="markdown-content" v-html="htmlContent"></div>
 </template>
 
 <style>
+.markdown-content {
+  width: 100%;
+}
 .markdown-content pre code {
   display: block;
   padding: 1rem;

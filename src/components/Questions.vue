@@ -1,35 +1,31 @@
 <script setup lang="ts">
-import {onMounted, ref, watch} from "vue";
-import MarkdownRenderer from "./MarkdownRenderer.vue";
+import {computed} from "vue";
+import {useTopics} from "../stores/topics.ts";
+import MarkdownRenderer from "../shared/UI/markdown-renderer/MarkdownRenderer.vue";
 
-const {description} = defineProps<{
-  description?: string;
-}>();
+const topicsStore = useTopics();
+const content = computed(() => topicsStore.selectedContent);
 
-
-const htmlContent = ref<string | (() => Promise<string>)>("");
-
-function loadContent() {
-  if (!description) return;
-
-  return fetch(description)
-      .then(res => res.text())
-      .then(md => {
-        htmlContent.value = md
-      })
-      .catch(error => console.error('Ошибка загрузки:', error))
-}
-
-onMounted(() => {
-  loadContent()
-})
-
-watch(() => description, loadContent);
 </script>
 
 <template>
-  <MarkdownRenderer v-if="htmlContent" :content="htmlContent"/>
+  <section class="section">
+    <MarkdownRenderer :content="content"/>
+    <div v-if="topicsStore.isLoading" class="loading">Loading...</div>
+    <div v-if="topicsStore.error" class="error">{{ topicsStore.error }}</div>
+  </section>
 </template>
 
-<style>
+<style scoped>
+.section {
+  width: calc(100% - 350px);
+  padding: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    width: 100%;
+    padding: 1rem;
+  }
+}
 </style>
