@@ -99,6 +99,7 @@ onMounted(() => {
   padding: 1rem;
   border-bottom: 2px solid;
 }
+
 .aside {
   width: 350px;
   flex-shrink: 0;
@@ -173,6 +174,7 @@ ul {
     position: absolute;
     top: 5px;
     right: 10px;
+    color: black;
   }
 
   .aside {

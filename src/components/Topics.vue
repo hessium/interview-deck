@@ -47,8 +47,8 @@ const handleSelect = (id: string) => {
 </script>
 
 <template>
-  <ul>
-    <li v-for="node in nodes" :key="node.title">
+  <ul class="node-list">
+    <li class="node-list__item" v-for="node in nodes" :key="node.title">
       <div
           class="node"
           @click="handleSelect(node.id!)"
@@ -59,7 +59,7 @@ const handleSelect = (id: string) => {
           'selected': node.id === selectedId,
         }"
       >
-        <h3 :style="{ fontSize: `${1.2 - 0.2 * level}rem`}">
+        <h3 class="node__title" :style="{ fontSize: `${1.2 - 0.2 * level}rem`}">
           {{ node.title }}
         </h3>
 
@@ -94,7 +94,7 @@ const handleSelect = (id: string) => {
   </ul>
 </template>
 
-<style scoped>
+<style>
 .node {
   cursor: pointer;
   display: flex;
@@ -108,10 +108,7 @@ const handleSelect = (id: string) => {
   transition: background-color .3s ease-out;
 }
 
-.node.selected {
-  background-color: rgba(0, 0, 0, .05);
-  color: #6565d5;
-}
+
 
 .toggle {
   width: 24px;
@@ -132,5 +129,10 @@ const handleSelect = (id: string) => {
 
 .children {
   padding-left: 8px;
+}
+
+.node.selected {
+  background-color: rgba(0, 0, 0, .05);
+  color: #6565d5;
 }
 </style>
