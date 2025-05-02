@@ -31,20 +31,10 @@ watch(() => content, loadContent, { deep: true });
 </script>
 
 <template>
-  <div class="markdown-content" v-html="htmlContent"></div>
+    <div class="markdown-content" v-html="htmlContent"></div>
 </template>
 
 <style>
-.markdown-content {
-  line-height: 1.6;
-  padding: 1rem;
-}
-
-.markdown-content h1 {
-  font-size: 2em;
-  margin: 1em 0 0.5em;
-}
-
 .markdown-content pre code {
   display: block;
   padding: 1rem;
@@ -53,9 +43,20 @@ watch(() => content, loadContent, { deep: true });
   margin: 1rem 0;
 }
 
+.markdown-content h1 {
+  margin-bottom: 1rem;
+}
+
+.markdown-content * {
+  margin-bottom: .8rem;
+}
+
 .markdown-content code:not(pre code) {
   background: #f0f0f0;
-  padding: 0.2em 0.4em;
+  padding: 0.1em 0.6em;
   border-radius: 3px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
 }
 </style>
