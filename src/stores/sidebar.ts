@@ -7,6 +7,9 @@ export const useSidebar = defineStore('sidebar', {
     actions: {
         handleToggle() {
             this.isOpen = !this.isOpen
+        },
+        closeSidebar() {
+            this.isOpen = false
         }
     },
 })

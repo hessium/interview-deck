@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import {computed, defineProps,} from "vue";
 import {type TopicNode, useTopics} from "../stores/topics.ts";
+import {useSidebar} from "../stores/sidebar.ts";
 
+const sidebarStore = useSidebar();
 const topicsStore = useTopics();
 
 const {parentPath, nodes} = defineProps<{
@@ -19,6 +21,14 @@ const handleToggle = (node: TopicNode, path: string) => {
   }
 };
 
+const handleSelected = (node: TopicNode) => {
+  topicsStore.selectTopic(node.id!)
+
+  if ( node.children) return null;
+
+  sidebarStore.closeSidebar()
+}
+
 const level = computed(() => {
   return parentPath ? parentPath.split('/').length : 0;
 });
@@ -30,7 +40,7 @@ const level = computed(() => {
     <li class="node-list__item" v-for="node in nodes" :key="node.title">
       <button
           class="node"
-          @click="topicsStore.selectTopic(node.id!)"
+          @click="handleSelected(node!)"
           :class="{
           'clickable': node.id || node.children,
           'expanded': topicsStore.isExpanded(getNodePath(node)),
@@ -66,7 +76,7 @@ const level = computed(() => {
         <Topics
             :nodes="node.children"
             :parent-path="getNodePath(node)"
-            @click="topicsStore.selectTopic(node.id!)"
+            @click="handleSelected(node)"
         />
       </div>
     </li>

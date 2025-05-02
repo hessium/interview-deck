@@ -33,6 +33,8 @@ const sidebar = useSidebar();
     position: sticky;
     top: 0;
     background-color: white;
+    z-index: 1;
+    height: 70px;
   }
 
   .burger {
