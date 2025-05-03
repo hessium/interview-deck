@@ -51,6 +51,7 @@ onBeforeUnmount(() => {
   flex-shrink: 0;
   padding: 1rem;
   border-right: 2px solid black;
+  overflow-y: auto;
 }
 
 .sidebar__header {
@@ -60,16 +61,6 @@ onBeforeUnmount(() => {
   padding: 5px;
 }
 
-.sidebar__wrapper {
-  height: 100%;
-  max-height: 100vh;
-  position: sticky;
-  top: 0;
-}
-.sidebar__navigation {
-  height: 100%;
-  overflow-y: auto;
-}
 
 .sidebar__btn {
   width: calc(50% - 10px);
@@ -84,7 +75,7 @@ onBeforeUnmount(() => {
     top:  70px;
     left: 0;
     background-color: white;
-    height: 100dvh;
+    height: calc(100dvh - 70px);
     transform: translateX(-100vw);
     transition: all .3s linear;
   }

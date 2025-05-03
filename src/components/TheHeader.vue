@@ -34,6 +34,7 @@ const sidebar = useSidebar();
     top: 0;
     background-color: white;
     z-index: 1;
+    min-height: 70px;
     height: 70px;
   }
 
@@ -41,6 +42,10 @@ const sidebar = useSidebar();
     width: 24px;
     height: 24px;
     display: block;
+  }
+
+  .title {
+    font-size: 1rem;
   }
 }
 </style>

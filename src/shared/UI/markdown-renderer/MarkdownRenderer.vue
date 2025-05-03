@@ -44,6 +44,7 @@ watch(() => content, loadContent, { deep: true });
   background: #f5f5f5;
   border-radius: 4px;
   margin: 1rem 0;
+  white-space: break-spaces;
 }
 
 .markdown-content h1 {
@@ -62,4 +63,6 @@ watch(() => content, loadContent, { deep: true });
   font-weight: 700;
   line-height: 1;
 }
+
+
 </style>

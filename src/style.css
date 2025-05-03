@@ -21,6 +21,10 @@ body {
   overflow-x: hidden;
 }
 
+.lock-scroll {
+  overflow: hidden;
+}
+
 #app {
   width: 100%;
   margin: 0 auto;
