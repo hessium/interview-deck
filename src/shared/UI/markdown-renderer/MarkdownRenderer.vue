@@ -77,6 +77,7 @@ watch(() => content, loadContent, {deep: true});
   background-color: var(--color-bg-code);
   padding: 0.2em 0.4em;
   border-radius: 3px;
+  display: block;
 }
 
 /* Таблицы */
@@ -113,7 +114,7 @@ watch(() => content, loadContent, {deep: true});
 /* Цитаты */
 .markdown-content blockquote {
   padding: 0 1em;
-  color: var(--color-bg-code);
+  color: var(--color-text-default);
   border-left: 0.25em solid  var(--color-text);
   margin: 1rem 0;
 }

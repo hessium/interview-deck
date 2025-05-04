@@ -11,8 +11,7 @@ const themStore = useTheme();
     <div class="header__row">
       <button class="burger" @click="sidebarStore.handleToggle()">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path fill="white"
-                d="M2,4A1,1,0,0,1,3,3H21a1,1,0,0,1,0,2H3A1,1,0,0,1,2,4Zm1,9H21a1,1,0,0,0,0-2H3a1,1,0,0,0,0,2Zm0,8H21a1,1,0,0,0,0-2H3a1,1,0,0,0,0,2Z"/>
+          <path d="M2,4A1,1,0,0,1,3,3H21a1,1,0,0,1,0,2H3A1,1,0,0,1,2,4Zm1,9H21a1,1,0,0,0,0-2H3a1,1,0,0,0,0,2Zm0,8H21a1,1,0,0,0,0-2H3a1,1,0,0,0,0,2Z"/>
         </svg>
       </button>
       <h1 class="title">Вопросы к собеседованию</h1>
@@ -36,6 +35,12 @@ const themStore = useTheme();
   border-bottom: 2px solid var(--color-text);
   background-color: var(--color-bg);
   transition: background-color .3s linear;
+}
+
+.header__row {
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
 .burger {
@@ -64,10 +69,20 @@ const themStore = useTheme();
     height: 70px;
   }
 
+  .header__row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
   .burger {
     width: 24px;
     height: 24px;
     display: block;
+  }
+
+  .burger svg  {
+    fill: var(--color-text);
   }
 
   .title {
