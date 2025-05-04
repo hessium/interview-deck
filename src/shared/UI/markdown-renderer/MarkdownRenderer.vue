@@ -37,19 +37,22 @@ watch(() => content, loadContent, { deep: true });
 <style>
 .markdown-content {
     width: 100%;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: #24292e;
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
+    word-wrap: break-word;
 }
 
+/* Заголовки */
 .markdown-content h1 {
     margin: 1.5rem 0;
     font-size: 2rem;
     border-bottom: 1px solid #eaecef;
     padding-bottom: 0.3em;
+    font-weight: 600;
 }
 
 .markdown-content h2 {
@@ -57,13 +60,16 @@ watch(() => content, loadContent, { deep: true });
     font-size: 1.5rem;
     border-bottom: 1px solid #eaecef;
     padding-bottom: 0.3em;
+    font-weight: 600;
 }
 
 .markdown-content h3 {
     margin: 1.1rem 0;
     font-size: 1.25rem;
+    font-weight: 600;
 }
 
+/* Текст и списки */
 .markdown-content p,
 .markdown-content ul,
 .markdown-content ol,
@@ -80,34 +86,41 @@ watch(() => content, loadContent, { deep: true });
     margin: 0.3rem 0;
 }
 
+/* Блоки кода (подсветка синтаксиса как в GitHub) */
 .markdown-content pre {
     background: #f6f8fa;
     border-radius: 6px;
     padding: 16px;
     overflow: auto;
     margin: 1rem 0;
-}
-
-.markdown-content code {
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-    font-size: 0.9em;
+    line-height: 1.45;
+    position: relative;
 }
 
 .markdown-content pre code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9em;
     background: transparent;
     padding: 0;
     border-radius: 0;
     margin: 0;
     white-space: pre;
+    color: #24292e;
+    display: block;
+    overflow: visible;
 }
 
+/* Inline код */
 .markdown-content code:not(pre code) {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
     background: rgba(27, 31, 35, 0.05);
     padding: 0.2em 0.4em;
     border-radius: 3px;
     font-size: 85%;
+    color: #e01e5a;
 }
 
+/* Таблицы */
 .markdown-content table {
     border-collapse: collapse;
     width: 100%;
@@ -119,7 +132,7 @@ watch(() => content, loadContent, { deep: true });
 .markdown-content th,
 .markdown-content td {
     border: 1px solid #dfe2e5;
-    padding: 0.6rem 1rem;
+    padding: 6px 13px;
 }
 
 .markdown-content th {
@@ -127,10 +140,16 @@ watch(() => content, loadContent, { deep: true });
     font-weight: 600;
 }
 
-.markdown-content tr:nth-child(even) {
-    background-color: #f6f8fa;
+.markdown-content tr {
+    background-color: #fff;
+    border-top: 1px solid #c6cbd1;
 }
 
+    .markdown-content tr:nth-child(even) {
+        background-color: #f6f8fa;
+    }
+
+/* Цитаты */
 .markdown-content blockquote {
     padding: 0 1em;
     color: #6a737d;
@@ -141,4 +160,47 @@ watch(() => content, loadContent, { deep: true });
     .markdown-content blockquote p {
         margin: 0;
     }
+
+/* Специфические цвета для подсветки SQL (как в GitHub) */
+.markdown-content .token.keyword {
+    color: #d73a49;
+}
+
+.markdown-content .token.string {
+    color: #032f62;
+}
+
+.markdown-content .token.function {
+    color: #6f42c1;
+}
+
+.markdown-content .token.comment {
+    color: #6a737d;
+}
+
+.markdown-content .token.number {
+    color: #005cc5;
+}
+
+.markdown-content .token.operator {
+    color: #d73a49;
+}
+
+/* Дополнительные стили для лучшего UX */
+.markdown-content a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+    .markdown-content a:hover {
+        text-decoration: underline;
+    }
+
+.markdown-content strong {
+    font-weight: 600;
+}
+
+.markdown-content em {
+    font-style: italic;
+}
 </style>
