@@ -4,6 +4,20 @@
   margin: 0;
 }
 
+:root {
+  --color-bg: white;
+  --color-bg-code: #f6f8fa;
+  --color-bg-table: #d1d9e0;
+  --color-text: #0d1117;
+}
+
+:root:has(.dark) {
+  --color-bg: #0d1117;
+  --color-bg-code: #1e2633;
+  --color-bg-table: #222939;
+  --color-text:  rgb(240, 246, 252);
+}
+
 body {
   width: 100%;
   min-height: 100vh;
@@ -11,8 +25,8 @@ body {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color:  black;
-  background-color: white;
+  color:  var(--color-text);
+  background-color: var(--color-bg);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -51,6 +65,7 @@ button {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  color: inherit;
 }
 
 h1 {

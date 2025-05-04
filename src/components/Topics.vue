@@ -118,6 +118,7 @@ const level = computed(() => {
 .toggle-icon {
   width: 100%;
   height: 100%;
+  fill: var(--color-text)
 }
 
 .children {
@@ -125,7 +126,7 @@ const level = computed(() => {
 }
 
 .node.selected {
-  background-color: rgba(0, 0, 0, .05);
+  background-color: var(--color-bg-table);
   color: #6565d5;
 }
 </style>

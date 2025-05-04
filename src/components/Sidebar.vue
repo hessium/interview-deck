@@ -50,7 +50,7 @@ onBeforeUnmount(() => {
   width: 350px;
   flex-shrink: 0;
   padding: 1rem;
-  border-right: 2px solid black;
+  border-right: 2px solid var(--color-text);
   overflow-y: auto;
 }
 
@@ -65,8 +65,8 @@ onBeforeUnmount(() => {
 .sidebar__btn {
   width: calc(50% - 10px);
   padding: 4px;
-  background-color: whitesmoke;
   border-radius: 5px;
+  background-color: var(--color-bg-table);
 }
 
 @media (max-width: 1024px) {
@@ -74,7 +74,7 @@ onBeforeUnmount(() => {
     position: fixed;
     top:  70px;
     left: 0;
-    background-color: white;
+    background-color: var(--color-bg);
     height: calc(100dvh - 70px);
     transform: translateX(-100vw);
     transition: all .3s linear;
