@@ -11,12 +11,12 @@
             {
               "title": "Файловая система и хранилище",
               "id": "file_system_and_storage",
-              "contentPath": "content/file_system_and_storage.md"
+              "contentPath": "content/Linux/file_system_and_storage.md"
             },
             {
               "title": "POSIX API и интерфейс взаимодействия с процессами",
               "id": "posix_api_and_process_interface",
-              "contentPath": "content/posix_api_and_process_interface.md"
+              "contentPath": "content/Linux/posix_api_and_process_interface.md"
             }
           ]
         },
@@ -27,12 +27,12 @@
             {
               "title": "Команды и утилиты для работы с сетью",
               "id": "network_commands_and_tools",
-              "contentPath": "content/network_commands_and_tools.md"
+              "contentPath": "content/Linux/network_commands_and_tools.md"
             },
             {
               "title": "Сетевой стек и соединения в Linux",
               "id": "network_stack_and_connections",
-              "contentPath": "content/network_stack_and_connections.md"
+              "contentPath": "content/Linux/network_stack_and_connections.md"
             }
           ]
         },
@@ -43,12 +43,12 @@
             {
               "title": "Прерывания и сигналы в Linux",
               "id": "interrupts_and_signals",
-              "contentPath": "content/interrupts_and_signals.md"
+              "contentPath": "content/Linux/interrupts_and_signals.md"
             },
             {
               "title": "Гонки данных и работа с памятью",
               "id": "memory_race_conditions",
-              "contentPath": "content/memory_race_conditions.md"
+              "contentPath": "content/Linux/memory_race_conditions.md"
             }
           ]
         },
@@ -59,12 +59,12 @@
             {
               "title": "Unix-сигналы и их использование",
               "id": "signals_and_kill",
-              "contentPath": "content/signals_and_kill.md"
+              "contentPath": "content/Linux/signals_and_kill.md"
             },
             {
               "title": "Работа с systemd-сервисами",
               "id": "systemd_services",
-              "contentPath": "content/systemd_services.md"
+              "contentPath": "content/Linux/systemd_services.md"
             }
           ]
         },
@@ -75,12 +75,292 @@
             {
               "title": "Память процесса в Linux",
               "id": "process_memory",
-              "contentPath": "content/process_memory.md"
+              "contentPath": "content/Linux/process_memory.md"
             },
             {
               "title": "Основы системных вызовов (syscalls) в Linux",
               "id": "syscalls_basics",
-              "contentPath": "content/syscalls_basics.md"
+              "contentPath": "content/Linux/syscalls_basics.md"
+            }
+          ]
+        },
+        {
+          "title": "Вопросы по Bash",
+          "id": "bash_syntax",
+          "children": [
+            {
+              "title": "Основные концепции и синтаксис Bash",
+              "id": "bash_fundamentals",
+              "contentPath": "content/Linux/Bash/bash_fundamentals.md"
+            },
+            {
+              "title": "Реальные примеры скриптов",
+              "id": "practical_scripting_examples",
+              "contentPath": "content/Linux/Bash/practical_scripting_examples.md"
+            },            
+            {
+              "title": "Работа с текстом",
+              "id": "text_processing_and_scripting",
+              "contentPath": "content/Linux/Bash/text_processing_and_scripting.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Вопросы по C++",
+      "id": "cpp",
+      "children": [
+        {
+          "title": "Исключения и управление ресурсами",
+          "id": "exceptions_and_resources",
+          "children": [
+            {
+              "title": "Исключения и Rule of Five",
+              "id": "exceptions_rule_of_five",
+              "contentPath": "content/Cpp/exceptions_and_rule_of_five.md"
+            }
+          ]
+        },
+        {
+          "title": "ООП и интерфейсы",
+          "id": "oop_and_interfaces",
+          "children": [
+            {
+              "title": "Контроль доступа при наследовании",
+              "id": "inheritance_access",
+              "contentPath": "content/Cpp/oop_and_Interfaces/inheritance_access_control.md"
+            },
+            {
+              "title": "Виртуальные функции и диспетчеризация",
+              "id": "virtual_functions",
+              "contentPath": "content/Cpp/oop_and_Interfaces/virtual_functions_and_dispatch.md"
+            }
+          ]
+        },
+        {
+          "title": "Шаблоны и метапрограммирование",
+          "id": "templates",
+          "children": [
+            {
+              "title": "SFINAE и type traits",
+              "id": "sfinae",
+              "contentPath": "content/Cpp/templates/sfinae_and_type_traits.md"
+            },
+            {
+              "title": "Специализация шаблонов",
+              "id": "template_specialization",
+              "contentPath": "content/Cpp/templates/templates_and_specialization.md"
+            }
+          ]
+        },
+        {
+          "title": "Многопоточность",
+          "id": "multithreading",
+          "children": [
+            {
+              "title": "Корутины в C++",
+              "id": "coroutines",
+              "contentPath": "content/Cpp/multithread/cpp_coroutines.md"
+            },
+            {
+              "title": "Thread-local и shared_ptr",
+              "id": "thread_safety",
+              "contentPath": "content/Cpp/multithread/thread_local_and_shared_ptr.md"
+            },
+            {
+              "title": "Гонки данных и мьютексы",
+              "id": "race_conditions",
+              "contentPath": "content/Cpp/multithread/race_conditions_and_mutexes.md"
+            }
+          ]
+        },
+        {
+          "title": "Стандарты C++",
+          "id": "cpp_standards",
+          "children": [
+            {
+              "title": "C++11/C++14: Основные фичи",
+              "id": "cpp11_14",
+              "contentPath": "content/Cpp/standards/cpp11_cpp14_features.md"
+            },
+            {
+              "title": "C++17/C++20: Нововведения",
+              "id": "cpp17_20",
+              "contentPath": "content/Cpp/standards/cpp17_cpp20_features.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Database",
+      "id": "database",
+      "children": [
+        {
+          "title": "NoSQL Databases",
+          "id": "nosql",
+          "children": [
+            {
+              "title": "NoSQL: Типы и применение",
+              "id": "nosql_types",
+              "contentPath": "content/Database/nosql_databases.md"
+            }
+          ]
+        },
+        {
+          "title": "PostgreSQL",
+          "id": "postgresql",
+          "children": [
+            {
+              "title": "Транзакции в PostgreSQL",
+              "id": "postgres_transactions",
+              "contentPath": "content/Database/postgresql_transactions.md"
+            }
+          ]
+        },
+        {
+          "title": "Индексы",
+          "id": "indexes",
+          "children": [
+            {
+              "title": "Составные индексы",
+              "id": "composite_indexes",
+              "contentPath": "content/Database/indexes/composite_indexes.md"
+            },
+            {
+              "title": "Индексы и DML-операции",
+              "id": "indexes_and_dml",
+              "contentPath": "content/Database/indexes/indexes_and_dml_operations.md"
+            },
+            {
+              "title": "Типы индексов",
+              "id": "index_types",
+              "contentPath": "content/Database/indexes/types_of_indexes.md"
+            }
+          ]
+        },
+        {
+          "title": "Анализ запросов",
+          "id": "query_analysis",
+          "children": [
+            {
+              "title": "EXPLAIN ANALYZE и стоимость запросов",
+              "id": "explain_analyze",
+              "contentPath": "content/Database/query_explain/explain_analyze_and_cost.md"
+            },
+            {
+              "title": "Планы запросов и FULL SCAN",
+              "id": "query_plans",
+              "contentPath": "content/Database/query_explain/query_plans_and_full_scan.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "System Design",
+      "id": "system_design",
+      "children": [
+        {
+          "title": "Messaging & Streaming",
+          "id": "messaging_streaming",
+          "children": [
+            {
+              "title": "Apache Kafka и Pub-Sub модели",
+              "id": "kafka_and_pubsub",
+              "contentPath": "content/SystemDesign/messaging_and_streaming.md"
+            }
+          ]
+        },
+        {
+          "title": "Distributed Systems Basics",
+          "id": "distributed_systems",
+          "children": [
+            {
+              "title": "CAP-теорема и репликация",
+              "id": "cap_and_replication",
+              "contentPath": "content/SystemDesign/distributed_systems_basics/cap_theorem_and_replication.md"
+            },
+            {
+              "title": "Выбор лидера и распределённые блокировки",
+              "id": "leader_election",
+              "contentPath": "content/SystemDesign/distributed_systems_basics/leader_election_and_distributed_locks.md"
+            },
+            {
+              "title": "Распределённые транзакции",
+              "id": "distributed_transactions",
+              "contentPath": "content/SystemDesign/distributed_systems_basics/distributed_transactions.md"
+            }
+          ]
+        },
+        {
+          "title": "Networking & APIs",
+          "id": "networking_apis",
+          "children": [
+            {
+              "title": "API Gateway и тонкие клиенты",
+              "id": "api_gateway",
+              "contentPath": "content/SystemDesign/networking_and_apis/api_gateway_and_thin_client.md"
+            },
+            {
+              "title": "REST, RPC и модели API",
+              "id": "api_models",
+              "contentPath": "content/SystemDesign/networking_and_apis/rest_rpc_and_api_models.md"
+            },
+            {
+              "title": "Прокси: Forward и Reverse",
+              "id": "proxy_types",
+              "contentPath": "content/SystemDesign/networking_and_apis/proxy_forward_reverse.md"
+            }
+          ]
+        },
+        {
+          "title": "Performance & Scaling",
+          "id": "performance_scaling",
+          "children": [
+            {
+              "title": "Стратегии кэширования",
+              "id": "caching_strategies",
+              "contentPath": "content/SystemDesign/performance_and_scaling/caching_strategies.md"
+            },
+            {
+              "title": "CDN и Edge-кэширование",
+              "id": "cdn_caching",
+              "contentPath": "content/SystemDesign/performance_and_scaling/cdn_and_caching.md"
+            },
+            {
+              "title": "Балансировка нагрузки",
+              "id": "load_balancing",
+              "contentPath": "content/SystemDesign/performance_and_scaling/load_balancing.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Git",
+      "id": "git",
+      "children": [
+        {
+          "title": "Основы Git",
+          "id": "git_basics",
+          "children": [
+            {
+              "title": "Топ-вопросов по Git",
+              "id": "git_top_questions",
+              "contentPath": "content/Git/git-top-questions.md"
+            }
+          ]
+        },
+        {
+          "title": "DevOps инструменты",
+          "id": "devops_tools",
+          "children": [
+            {
+              "title": "Основы Ansible",
+              "id": "ansible_fundamentals",
+              "contentPath": "content/Git/ansible_fundamentals.md"
             }
           ]
         }
