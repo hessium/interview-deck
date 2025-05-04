@@ -35,6 +35,7 @@ const themStore = useTheme();
   padding: 1rem;
   border-bottom: 2px solid var(--color-text);
   background-color: var(--color-bg);
+  transition: background-color .3s linear;
 }
 
 .burger {

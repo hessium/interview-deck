@@ -67,6 +67,7 @@ onBeforeUnmount(() => {
   padding: 4px;
   border-radius: 5px;
   background-color: var(--color-bg-table);
+  transition: background-color .3s linear;
 }
 
 @media (max-width: 1024px) {

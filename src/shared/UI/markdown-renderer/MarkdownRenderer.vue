@@ -51,6 +51,7 @@ watch(() => content, loadContent, {deep: true});
 .markdown-content pre code.hljs {
   padding: 1em;
   border-radius: 5px;
+  transition: background-color .3s linear;
 }
 
 .markdown-content * {
@@ -69,6 +70,7 @@ watch(() => content, loadContent, {deep: true});
   color: var(--color-text);
   border-radius: 4px;
   margin: 1rem 0;
+  transition: background-color .3s linear;
 }
 
 .markdown-content code:not(pre code) {
@@ -95,11 +97,13 @@ watch(() => content, loadContent, {deep: true});
 .markdown-content th {
   background-color:  var(--color-bg-table);
   font-weight: 600;
+  transition: background-color .3s linear;
 }
 
 .markdown-content tr {
   background-color:  var(--color-bg-code);
   border-top: 1px solid var(--color-text);
+  transition: background-color .3s linear;
 }
 
 .markdown-content tr:nth-child(even) {
