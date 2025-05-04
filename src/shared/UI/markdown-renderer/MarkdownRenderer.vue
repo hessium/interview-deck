@@ -1,13 +1,26 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue';
 import { marked } from 'marked';
+import { markedHighlight } from "marked-highlight";
+import hljs from 'highlight.js';
 import DOMPurify from 'dompurify';
+import 'highlight.js/styles/github.css';
+
+
+marked.use(markedHighlight({
+  langPrefix: 'hljs language-',
+  highlight(code, lang) {
+    const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+    return hljs.highlight(code, { language }).value;
+  }
+}));
 
 const { content } = defineProps<{
   content: string | null;
 }>();
 
 const htmlContent = ref('');
+
 
 const renderMarkdown = async (md: string) => {
   const rawHtml = await marked.parse(md);
@@ -35,11 +48,16 @@ watch(() => content, loadContent, { deep: true });
 </template>
 
 <style>
+.markdown-content pre code.hljs {
+  padding: 1em;
+  border-radius: 5px;
+}
+
 .markdown-content {
     width: 100%;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     line-height: 1.6;
-    color: #24292e;
+
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
@@ -88,7 +106,7 @@ watch(() => content, loadContent, { deep: true });
 
 /* Блоки кода (подсветка синтаксиса как в GitHub) */
 .markdown-content pre {
-    background: #f6f8fa;
+    background: #bdc5d5;
     border-radius: 6px;
     padding: 16px;
     overflow: auto;

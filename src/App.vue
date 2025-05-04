@@ -10,6 +10,7 @@ const topicsStore = useTopics();
 
 onMounted(async () => {
   await topicsStore.fetchTopics();
+
 });
 
 </script>
