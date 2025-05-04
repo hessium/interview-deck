@@ -98,12 +98,16 @@ watch(() => content, loadContent, { deep: true });
 }
 
 .markdown-content pre code {
-  display: block;
-  padding: 1rem;
-  background: #f5f5f5;
-  border-radius: 4px;
-  margin: 1rem 0;
-  white-space: break-spaces;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9em;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    margin: 0;
+    white-space: pre;
+    color: #24292e;
+    display: block;
+    overflow: visible;
 }
 
 /* Inline код */
