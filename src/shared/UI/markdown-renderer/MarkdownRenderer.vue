@@ -77,7 +77,6 @@ watch(() => content, loadContent, {deep: true});
   background-color: var(--color-bg-code);
   padding: 0.2em 0.4em;
   border-radius: 3px;
-  display: block;
 }
 
 /* Таблицы */
