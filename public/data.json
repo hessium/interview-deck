@@ -11,12 +11,12 @@
             {
               "title": "Файловая система и хранилище",
               "id": "file_system_and_storage",
-              "contentPath": "content/Linux/file_system_and_storage.md"
+              "contentPath": "content/Linux/Базовые_вопросы/file_system_and_storage.md"
             },
             {
               "title": "POSIX API и интерфейс взаимодействия с процессами",
               "id": "posix_api_and_process_interface",
-              "contentPath": "content/Linux/posix_api_and_process_interface.md"
+              "contentPath": "content/Linux/Базовые_вопросы/posix_api_and_process_interface.md"
             }
           ]
         },
@@ -27,12 +27,12 @@
             {
               "title": "Команды и утилиты для работы с сетью",
               "id": "network_commands_and_tools",
-              "contentPath": "content/Linux/network_commands_and_tools.md"
+              "contentPath": "content/Linux/Вопросы_по_сеть/network_commands_and_tools.md"
             },
             {
               "title": "Сетевой стек и соединения в Linux",
               "id": "network_stack_and_connections",
-              "contentPath": "content/Linux/network_stack_and_connections.md"
+              "contentPath": "content/Linux/Вопросы_по_сеть/network_stack_and_connections.md"
             }
           ]
         },
@@ -43,12 +43,12 @@
             {
               "title": "Прерывания и сигналы в Linux",
               "id": "interrupts_and_signals",
-              "contentPath": "content/Linux/interrupts_and_signals.md"
+              "contentPath": "content/Linux/Прерывания_и_многопоточность/interrupts_and_signals.md"
             },
             {
               "title": "Гонки данных и работа с памятью",
               "id": "memory_race_conditions",
-              "contentPath": "content/Linux/memory_race_conditions.md"
+              "contentPath": "content/Linux/Прерывания_и_многопоточность/memory_race_conditions.md"
             }
           ]
         },
@@ -59,12 +59,12 @@
             {
               "title": "Unix-сигналы и их использование",
               "id": "signals_and_kill",
-              "contentPath": "content/Linux/signals_and_kill.md"
+              "contentPath": "content/Linux/Сигналы_и_сервисы/signals_and_kill.md"
             },
             {
               "title": "Работа с systemd-сервисами",
               "id": "systemd_services",
-              "contentPath": "content/Linux/systemd_services.md"
+              "contentPath": "content/Linux/Сигналы_и_сервисы/systemd_services.md"
             }
           ]
         },
@@ -75,12 +75,12 @@
             {
               "title": "Память процесса в Linux",
               "id": "process_memory",
-              "contentPath": "content/Linux/process_memory.md"
+              "contentPath": "content/Linux/Системные_вызовы_и_процессы/process_memory.md"
             },
             {
               "title": "Основы системных вызовов (syscalls) в Linux",
               "id": "syscalls_basics",
-              "contentPath": "content/Linux/syscalls_basics.md"
+              "contentPath": "content/Linux/Системные_вызовы_и_процессы/syscalls_basics.md"
             }
           ]
         },
