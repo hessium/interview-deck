@@ -38,6 +38,17 @@ std::optional<int> maybe = 42;
 std::variant<int, std::string> v = "text";
 ```
 
+**Что такое std::any?**
+это **универсальный контейнер**, который может хранить значение любого типа.
+
+```c++
+std::any x = 42;  // Можно хранить int
+x = 3.14;         // Теперь это double
+x = std::string("Hello"); // Теперь строка
+
+std::cout << std::any_cast<std::string>(x) << std::endl; // "Hello"
+```
+
 ---
 
 ### 4. `inline` переменные

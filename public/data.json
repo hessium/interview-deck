@@ -112,15 +112,14 @@
       "id": "cpp",
       "children": [
         {
+          "title": "Общие вопросы по C++",
+          "id": "cpp_general_questions",
+          "contentPath": "content/Cpp/cpp_general_questions.md"
+        },
+        {
           "title": "Исключения и управление ресурсами",
           "id": "exceptions_and_resources",
-          "children": [
-            {
-              "title": "Исключения и Rule of Five",
-              "id": "exceptions_rule_of_five",
-              "contentPath": "content/Cpp/exceptions_and_rule_of_five.md"
-            }
-          ]
+          "contentPath": "content/Cpp/exceptions_and_rule_of_five.md"
         },
         {
           "title": "ООП и интерфейсы",
@@ -180,6 +179,11 @@
           "id": "cpp_standards",
           "children": [
             {
+              "title": "Вопросы по контейнерам",
+              "id": "containers",
+              "contentPath": "content/Cpp/standards/containers.md"
+            },
+            {
               "title": "C++11/C++14: Основные фичи",
               "id": "cpp11_14",
               "contentPath": "content/Cpp/standards/cpp11_cpp14_features.md"
@@ -200,24 +204,17 @@
         {
           "title": "NoSQL Databases",
           "id": "nosql",
-          "children": [
-            {
-              "title": "NoSQL: Типы и применение",
-              "id": "nosql_types",
-              "contentPath": "content/Database/nosql_databases.md"
-            }
-          ]
+          "contentPath": "content/Database/nosql_databases.md"
         },
         {
-          "title": "PostgreSQL",
-          "id": "postgresql",
-          "children": [
-            {
-              "title": "Транзакции в PostgreSQL",
-              "id": "postgres_transactions",
-              "contentPath": "content/Database/postgresql_transactions.md"
-            }
-          ]
+          "title": "Популярные вопросы по SQL",
+          "id": "postgres_transactions",
+          "contentPath": "content/Database/postgresql_transactions.md"
+        },
+        {
+          "title": "Транзакции в PostgreSQL",
+          "id": "postgres_transactions",
+          "contentPath": "content/Database/postgresql_transactions.md"
         },
         {
           "title": "Индексы",
