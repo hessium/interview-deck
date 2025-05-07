@@ -64,6 +64,8 @@ Index Scan using users_pkey on users  (cost=0.29..8.30 rows=1 width=244)
 - Статистика по данным (selectivity)
 - Настройки конфигурации (random_page_cost, cpu_tuple_cost и др.)
 
+Чем выше `COST`, тем медленнее запрос. `Index Scan` → низкий `COST`.
+
 ---
 
 ### ❓ Как использовать `EXPLAIN ANALYZE` для выявления проблем?

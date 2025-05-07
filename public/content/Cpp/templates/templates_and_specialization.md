@@ -34,12 +34,23 @@ struct Foo<int> {
 };
 ```
 
-- **Частичная специализация** — реализация шаблона для части параметров:
+- **Частичная специализация** позволяет переопределять шаблон не для одного типа, а для набора параметров:
 ```cpp
-template<typename T>
-struct Foo<T, int> {
-    // Специализация, когда второй параметр — int
+template<typename T1, typename T2>
+struct Foo {
+    void hello() { std::cout << "Generic template\n"; }
 };
+
+// Специализация, если второй параметр — int
+template<typename T1>
+struct Foo<T1, int> {
+    void hello() { std::cout << "Partial specialization for <T, int>\n"; }
+};
+
+int main() {
+    Foo<double, char> obj1; // Generic template
+    Foo<double, int> obj2;  // Partial specialization for <T, int>
+}
 ```
 
 ---
@@ -133,9 +144,38 @@ using T = std::tuple_element_t<1, decltype(t)>; // T = float
 
 ---
 
+### CRTP (Curiously Recurring Template Pattern)
+
+**CRTP** — это шаблон программирования в C++, при котором класс **наследуется от шаблона**, в который передается **он же сам**:
+```c++
+template<typename Derived>
+class Base {
+public:
+    void foo() {
+        static_cast<Derived*>(this)->impl();
+    }
+};
+
+class Derived : public Base<Derived> {
+public:
+    void impl() {
+        std::cout << "Derived::impl()" << std::endl;
+    }
+};
+
+int main() {
+    Derived d;
+    d.foo(); // Вызывает Derived::impl()
+}
+
+```
+
+---
+
 ## Рекомендации
 
 - Используйте `std::enable_if` или `if constexpr` для выбора реализации.
 - Не перегружайте шаблоны, если можно использовать tag dispatch.
 - Не злоупотребляйте специализацией — предпочтительнее `concepts` в C++20.
+
 
