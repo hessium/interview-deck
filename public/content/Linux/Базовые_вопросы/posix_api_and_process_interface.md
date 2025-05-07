@@ -15,3 +15,38 @@ POSIX API — это стандарт, определяющий интерфей
 - `0` — стандартный ввод (`stdin`)
 - `1` — стандартный вывод (`stdout`)
 - `2` — стандартная ошибка (`stderr`)
+
+## errno in C++: Basics and Best Practices
+
+## 1. Core Concepts
+- Глобальная переменная (макрос), устанавливаемая системными вызовами и библиотечными функциями при ошибках
+- Определяется в `<cerrno> (C++)` или `<errno.h> (C)`
+- **Важно**: Не сбрасывается в случае успеха!
+
+
+### 2. Пример обработки
+
+```c++
+    errno = 0; // Сброс
+    FILE* f = fopen("/nonexistent", "r");
+    
+    if (!f) {
+        const int err = errno; // Сохраняем значение
+        std::cerr << "Failed to open file:\n"
+                  << "Code: " << err << '\n'
+                  << "Message: " << strerror(err) << '\n'
+                  << "POSIX: " << std::generic_category().message(err) << '\n';
+        return 1;
+    }
+    
+    fclose(f);
+    return 0;
+
+```
+
+### 3. Common Codes
+```c++
+if (errno == EINVAL) { /* Некорректный аргумент */ }
+if (errno == ENOMEM) { /* Недостаточно памяти */ }
+```
+
