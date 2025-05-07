@@ -77,21 +77,6 @@ Foo<int, float> x;
 
 Это **двусмысленно** и вызовет ошибку компиляции из-за конфликта специализаций. Для разрешения необходимо использовать более специфичную специализацию или SFINAE/tag dispatching.
 
----
-
-### ❓ Что такое `SFINAE`?
-
-**Ответ:**  
-`SFINAE` — *Substitution Failure Is Not An Error*. Механизм, при котором ошибка при подстановке шаблонных аргументов **не приводит к ошибке компиляции**, если есть другие кандидаты.
-
-Пример:
-```cpp
-template<typename T>
-std::enable_if_t<std::is_integral_v<T>, int> f(T) { return 1; }
-
-template<typename T>
-std::enable_if_t<std::is_floating_point_v<T>, int> f(T) { return 2; }
-```
 
 ---
 
@@ -112,34 +97,32 @@ void wrapper(T x) {
     impl(x, std::is_integral<T>{});
 }
 ```
-
 ---
 
-### ❓ Что важно знать о `std::optional`, `std::variant`, `std::tuple`?
+### Variadic Templates (Шаблоны с переменным числом параметров)
 
-**Ответ:**
+Добавленные в C++11 и позже, они позволяют работать с произвольным числом шаблонных аргументов.
 
-- `std::optional<T>` — обёртка, указывающая на возможное отсутствие значения. Используется вместо `nullptr` или флагов.
-- `std::variant<T1, T2, ...>` — тип-объединение с безопасным доступом. Подобие `union`, но с типобезопасностью.
-- `std::tuple<T1, T2, ...>` — фиксированный набор значений разного типа.
+```c++
+template <typename... Args>
+void print(Args... args) {
+    (std::cout << ... << args) << std::endl;  // Fold expression (C++17)
+}
 
----
+int main() {
+    print(1, 2.5, "Hello", 'A');
+}
 
-### ❓ Чем отличается `variant` от `any`?
+template<typename T>
+void print(T t) { std::cout << t << " "; }
 
-**Ответ:**
-- `std::variant` — набор фиксированных типов. Компилируется эффективно, без RTTI.
-- `std::any` — тип-обёртка для любого значения. Требует RTTI и медленнее работает.
+//Рекурсивный вызов с уменьшенным списком аргументов
+template<typename T, typename... Args>
+void print(T t, Args... args) {
+    std::cout << t << " ";
+    print(args...); // Рекурсивный вызов с уменьшенным списком аргументов
+}
 
----
-
-### ❓ Как получить тип элемента в `std::tuple`?
-
-**Ответ:**
-
-```cpp
-std::tuple<int, float, std::string> t;
-using T = std::tuple_element_t<1, decltype(t)>; // T = float
 ```
 
 ---

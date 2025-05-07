@@ -70,6 +70,34 @@ std::shared_ptr<MyClass> sptr = std::make_shared<MyClass>();
 std::vector<int> v1 = {1, 2, 3};
 std::vector<int> v2 = std::move(v1); // перемещение
 ```
+---
+
+### Для чего нужен std::forward?
+
+`std::forward` используется для переводки аргументов в универсальной ссылке в шаблонных функциях, чтобы правильно передать их в другие функции, сохраняя их категорию значений (lvalue или rvalue). Это особенно важно в контексте перемещения и копирования объектов.
+
+`std::forward<T>` используется, чтобы правильно передать аргумент дальше, сохраняя его категорию. Это важно, потому что если передан rvalue, нужно выполнить перемещение (move), а если lvalue — обычное копирование.
+
+```c++
+void print_value(int&& val) {
+    std::cout << "rvalue: " << val << std::endl;
+}
+
+void print_value(int& val) {
+    std::cout << "lvalue: " << val << std::endl;
+}
+
+template <typename T>
+void forward_value(T&& val) {
+    print_value(std::forward<T>(val));  // сохраняем категорию значения (lvalue или rvalue)
+}
+
+int main() {
+    int a = 10;
+    forward_value(a);         // lvalue
+    forward_value(20);        // rvalue
+}
+```
 
 ---
 
