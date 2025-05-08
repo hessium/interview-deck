@@ -208,8 +208,8 @@
         },
         {
           "title": "Популярные вопросы по SQL",
-          "id": "postgres_transactions",
-          "contentPath": "content/Database/postgresql_transactions.md"
+          "id": "top_questions",
+          "contentPath": "content/Database/top_questions.md"
         },
         {
           "title": "Транзакции в PostgreSQL",
