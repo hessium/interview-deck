@@ -13,6 +13,26 @@ onMounted(async () => {
 
 });
 
+function siHay() {
+  const data = { title: 'John',des: 'dsa', price: 30 }
+  
+  fetch('https://fakestoreapi.com/products', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Сетевая ошибка');
+        }
+        return response.json();
+      })
+      .then(data => console.log(data))
+      .catch(error => console.error('Ошибка:', error));
+
+}
+siHay()
+
 </script>
 
 <template>

@@ -84,6 +84,10 @@ const level = computed(() => {
 </template>
 
 <style scoped>
+.node-list {
+  list-style: none;
+  padding-left: 0;
+}
 .node {
   cursor: pointer;
   width: 100%;
