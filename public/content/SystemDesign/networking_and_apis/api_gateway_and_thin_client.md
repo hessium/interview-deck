@@ -28,6 +28,8 @@ API Gateway — это промежуточный уровень между кл
 - Упрощение клиента — один входной API вместо множества
 - Агрегация данных с разных микросервисов
 
+![Screenshot of the structure of the system elements](content/SystemDesign/networking_and_apis/apt_getway.jpg)
+
 ---
 
 ### Что такое тонкий клиент (thin client)?

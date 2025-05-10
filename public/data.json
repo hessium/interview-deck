@@ -260,18 +260,18 @@
       "id": "system_design",
       "children": [
         {
-          "title": "Messaging & Streaming",
+          "title": "Обмен сообщениями & Потоковая передача",
           "id": "messaging_streaming",
           "children": [
             {
               "title": "Apache Kafka и Pub-Sub модели",
               "id": "kafka_and_pubsub",
-              "contentPath": "content/SystemDesign/messaging_and_streaming.md"
+              "contentPath": "content/SystemDesign/messaging_streaming/apache_kafka.md"
             }
           ]
         },
         {
-          "title": "Distributed Systems Basics",
+          "title": "Основы распределенных систем",
           "id": "distributed_systems",
           "children": [
             {
@@ -292,7 +292,7 @@
           ]
         },
         {
-          "title": "Networking & APIs",
+          "title": "Сеть & API-интерфейсы",
           "id": "networking_apis",
           "children": [
             {
@@ -313,7 +313,7 @@
           ]
         },
         {
-          "title": "Performance & Scaling",
+          "title": "Производительность & Масштабирование",
           "id": "performance_scaling",
           "children": [
             {
