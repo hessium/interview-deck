@@ -4,9 +4,18 @@
 
 Кэширование — это техника хранения часто используемых данных ближе к пользователю или обработчику, чтобы снизить задержки, нагрузку и стоимость.
 
+![Screenshot of the structure of the system elements](content/SystemDesign/performance_and_scaling/Caching.jpg)
+![Screenshot of the structure of the system elements](content/SystemDesign/performance_and_scaling/Caching_info.jpg)
+
+
 ---
 
 ## Вопросы и ответы
+
+### Когда нужно кэшировать?
+
+![Screenshot of the structure of the system elements](content/SystemDesign/performance_and_scaling/Good_caching_.jpg)
+
 
 ### Какие бывают уровни кэширования?
 
@@ -21,6 +30,9 @@
 ### Какие популярные алгоритмы вытеснения существуют?
 
 - **LRU (Least Recently Used)** — удаляется наименее недавно используемый элемент.
+
+![Screenshot of the structure of the system elements](content/SystemDesign/performance_and_scaling/LRU_caching.jpg)
+
 - **LFU (Least Frequently Used)** — удаляется наименее часто используемый.
 - **FIFO (First In, First Out)** — удаляется первый добавленный элемент.
 - **Random Replacement** — случайное удаление.
