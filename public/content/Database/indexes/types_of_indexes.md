@@ -3,18 +3,37 @@
 ## Описание
 Этот файл содержит описание различных типов индексов, используемых в реляционных базах данных, таких как B-деревья, хэш-индексы, кластерные и некластерные индексы, уникальные индексы и первичные ключи.
 
+**Плюсы:**
+- Ускоряют чтение
+
+**Минусы:**
+- Замедляют запись
+- Используют дополнительную память
+- Усложняют работу планировщика запросов
+
 ## Вопросы и ответы
 
 ### Какие бывают типы индексов в реляционных БД?
 - B-дерево (B-tree)
+
+![Screenshot of the structure of the system elements](content/Database/indexes/btree.png)
+
 - Хэш-индекс
 - Кластерный индекс (Clustered)
 - Некластерный индекс (Non-clustered)
 - Уникальный индекс (Unique index)
 - Полнотекстовый индекс (Full-text)
+- bitmap (фильтр параметров)
+
+![Screenshot of the structure of the system elements](content/Database/indexes/bitmap.png)
+
 - Пространственный индекс (Spatial)
 
-**Пример индекса:**
+![Screenshot of the structure of the system elements](content/Database/indexes/spetial.png)
+
+
+
+**Пример создания индекса:**
 ```sql
 CREATE INDEX idx_users_email ON users(email);
 ```
