@@ -154,23 +154,34 @@
           ]
         },
         {
+          "title": "Сетевое программирование",
+          "id": "network",
+          "children": [
+            {
+              "title": "Boost Asio",
+              "id": "boost_asio",
+              "contentPath": "content/Cpp/network/sync_async_asio.md"
+            },
+            {
+              "title": "Корутины в C++",
+              "id": "coroutines",
+              "contentPath": "content/Cpp/network/cpp_coroutines.md"
+            }
+          ]
+        },
+        {
           "title": "Многопоточность",
           "id": "multithreading",
           "children": [
             {
-              "title": "Корутины в C++",
-              "id": "coroutines",
-              "contentPath": "content/Cpp/multithread/cpp_coroutines.md"
+              "title": "Гонки данных и мьютексы",
+              "id": "race_conditions",
+              "contentPath": "content/Cpp/multithread/race_conditions_and_mutexes.md"
             },
             {
               "title": "Thread-local и shared_ptr",
               "id": "thread_safety",
               "contentPath": "content/Cpp/multithread/thread_local_and_shared_ptr.md"
-            },
-            {
-              "title": "Гонки данных и мьютексы",
-              "id": "race_conditions",
-              "contentPath": "content/Cpp/multithread/race_conditions_and_mutexes.md"
             }
           ]
         },

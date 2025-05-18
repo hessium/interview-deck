@@ -87,52 +87,58 @@ class Engine {};
 class Wheel {};
 
 class Car {
-    Engine* engine;
-    Wheel* wheel;
+private:
+    std::unique_ptr<Wheel> m_wheel;
+    std::unique_ptr<Engine> m_engine;
 
 public:
     // 1. Конструктор
-    Car() : engine(new Engine()), wheel(new Wheel()) {}
+        Car(Wheel* wheel, Engine* engien)
+        : m_wheel(wheel)
+        , m_engine(engien)
+    {}
 
     // 2. Деструктор
     ~Car() {
-        delete engine;
-        delete wheel;
+    // Нам не нужно ничего явно удалять. 
+    // Потому что мы используем умные указатели.
     }
 
     // 3. Копирующий конструктор
-    Car(const Car& other)
-        : engine(new Engine(*other.engine)),
-          wheel(new Wheel(*other.wheel)) {}
+    Car(Car& new_car)
+    {
+        m_wheel = std::make_unique<Wheel>(*new_car.m_wheel);
+        m_engine = std::make_unique<Engine>(*new_car.m_engine);
+    }
 
     // 4. Копирующее присваивание
-    Car& operator=(const Car& other) {
-        if (this != &other) {
-            delete engine;
-            delete wheel;
-            engine = new Engine(*other.engine);
-            wheel = new Wheel(*other.wheel);
-        }
+    Car& operator=(const Car& new_car)
+    {
+        if (this == &new_car)
+            return *this;
+
+        m_wheel.reset(new Wheel(*new_car.m_wheel));
+        m_engine.reset(new Engine(*new_car.m_engine));
+
         return *this;
     }
 
     // 5. Перемещающий конструктор
     Car(Car&& other) noexcept
-        : engine(other.engine), wheel(other.wheel) {
-        other.engine = nullptr;
-        other.wheel = nullptr;
+        : m_wheel(std::move(other.m_wheel))
+        , m_engine(std::move(other.m_engine))
+    {
     }
 
     // 6. Перемещающее присваивание
-    Car& operator=(Car&& other) noexcept {
-        if (this != &other) {
-            delete engine;
-            delete wheel;
-            engine = other.engine;
-            wheel = other.wheel;
-            other.engine = nullptr;
-            other.wheel = nullptr;
-        }
+    Car& operator=(Car&& other) noexcept
+    {
+        if (this == &other)
+            return *this;
+
+        m_wheel = std::move(other.m_wheel);
+        m_engine = std::move(other.m_engine);
+
         return *this;
     }
 };
