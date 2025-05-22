@@ -33,6 +33,11 @@
               "title": "Сетевой стек и соединения в Linux",
               "id": "network_stack_and_connections",
               "contentPath": "content/Linux/Вопросы_по_сеть/network_stack_and_connections.md"
+            },
+            {
+              "title": "Модель OSI, как формируется пакет",
+              "id": "osi_model",
+              "contentPath": "content/Linux/Вопросы_по_сеть/osi_model.md"
             }
           ]
         },
@@ -123,7 +128,7 @@
             {
               "title": "Исключения и управление ресурсами",
               "id": "exceptions_and_resources",
-              "contentPath": "content/Cpp/exceptions_and_rule_of_five.md"
+              "contentPath": "content/Cpp/oop_and_Interfaces/exceptions_and_rule_of_five.md"
             },
             {
               "title": "Виртуальные функции и диспетчеризация",
