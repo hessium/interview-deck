@@ -117,23 +117,23 @@
           "contentPath": "content/Cpp/cpp_general_questions.md"
         },
         {
-          "title": "Исключения и управление ресурсами",
-          "id": "exceptions_and_resources",
-          "contentPath": "content/Cpp/exceptions_and_rule_of_five.md"
-        },
-        {
           "title": "ООП и интерфейсы",
           "id": "oop_and_interfaces",
           "children": [
             {
-              "title": "Контроль доступа при наследовании",
-              "id": "inheritance_access",
-              "contentPath": "content/Cpp/oop_and_Interfaces/inheritance_access_control.md"
+              "title": "Исключения и управление ресурсами",
+              "id": "exceptions_and_resources",
+              "contentPath": "content/Cpp/exceptions_and_rule_of_five.md"
             },
             {
               "title": "Виртуальные функции и диспетчеризация",
               "id": "virtual_functions",
               "contentPath": "content/Cpp/oop_and_Interfaces/virtual_functions_and_dispatch.md"
+            },
+            {
+              "title": "Контроль доступа при наследовании",
+              "id": "inheritance_access",
+              "contentPath": "content/Cpp/oop_and_Interfaces/inheritance_access_control.md"
             }
           ]
         },

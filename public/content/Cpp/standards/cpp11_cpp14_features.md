@@ -163,6 +163,18 @@ decltype(auto) get() { return (x); }
 auto ptr = std::make_unique<MyClass>();
 ```
 
+### 3.1 `Как std::move работает с std::unique_ptr`
+
+- `std::unique_ptr` нельзя копировать (у него удалён copy constructor).
+- Но его можно переместить — это и делает std::move.
+- После перемещения исходный unique_ptr становится nullptr.
+```c++
+    void copy_ownership(std::unique_ptr<int> ptr); // Ожидает копию (но копировать нельзя)
+    
+    take_ownership(std::move(my_ptr)); // ✅ Передача через перемещение
+    if (my_ptr == nullptr) 
+        std::cout << "my_ptr is now nullptr after move\n";
+```
 ---
 
 ### 4. Переменные шаблоны
