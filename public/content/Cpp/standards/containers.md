@@ -80,6 +80,56 @@ int x = dq[3]; // O(1)
 
 ---
 
+---
+## priority_queue
+
+`std::priority_queue` — это **адаптер**, который предоставляет интерфейс очереди с приоритетом (максимальный элемент — наверху), 
+построенной на базе другого контейнера (**обычно vector**) и поддерживаемой с помощью max-heap.
+
+1. Все элементы хранятся в Container (по умолчанию `std::vector`).
+2. После каждого `push` вызывается `std::push_heap` (из `<algorithm>`), чтобы сохранить свойство кучи.
+3. `pop()` вызывает `std::pop_heap`, а затем `container.pop_back()`.
+4. `top()` — это `container.front()`.
+
+**Пример при добавлении элементов:**
+```c++
+pq.push(10);   // Вектор: [10] → heap ok
+pq.push(5);    // Вектор: [10, 5] → heap: [10, 5]
+pq.push(20);   // Вектор: [10, 5, 20] → после push_heap: [20, 5, 10]
+```
+**Примерная реализация:**
+```c++
+template<typename T, typename Compare = std::less<T>>
+class MyPriorityQueue {
+    std::vector<T> data;
+    Compare comp;
+
+public:
+    void push(const T& value) {
+        data.push_back(value);
+        std::push_heap(data.begin(), data.end(), comp);
+    }
+
+    void pop() {
+        std::pop_heap(data.begin(), data.end(), comp);
+        data.pop_back();
+    }
+
+    const T& top() const {
+        return data.front();
+    }
+
+    bool empty() const {
+        return data.empty();
+    }
+
+    size_t size() const {
+        return data.size();
+    }
+};
+```
+---
+
 ## Остальные вопросы по контейнерам
 
 ---
@@ -107,6 +157,17 @@ int x = dq[3]; // O(1)
 std::tuple<int, float, std::string> t;
 using T = std::tuple_element_t<1, decltype(t)>; // T = float
 ```
+
+---
+### В std::set поиск максимального элемента
+
+**выполняется за O(1)**
+
+Потому что `std::set` — это сбалансированное бинарное дерево поиска (обычно red-black tree), в котором:
+
+- Элементы хранятся в отсортированном порядке.
+- Самый большой элемент всегда в конце (`--set.end()`).
+- Самый маленький элемент — это `set.begin()`.
 
 ---
 
