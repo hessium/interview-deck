@@ -110,3 +110,57 @@ using T = std::tuple_element_t<1, decltype(t)>; // T = float
 
 ---
 
+### Что такое placement new?
+
+`placement new` — это форма оператора new, которая позволяет **разместить объект в заранее выделенной области памяти**.
+```c++
+new (pointer) Type(constructor_args);
+```
+- `pointer` — указатель на выделенный буфер памяти (обычно `void*` или `char*`).
+- `Type(...)` — создание объекта типа `Type` на этой памяти.
+
+**Типичная реализация optional с placement new**:
+```c++
+template <typename T>
+class SimpleOptional {
+private:
+    alignas(T) unsigned char storage_[sizeof(T)];
+    bool has_value_ = false;
+
+public:
+    // Конструктор по умолчанию — пустой optional
+    my_optional() noexcept : has_value_(false) {}
+
+    // Конструктор от значения
+    my_optional(const T& value) : has_value_(true) {
+        new (&storage_) T(value); // placement-new
+    }
+
+    T& value() {
+        if (!has_value_) throw std::runtime_error("No value");
+        return *reinterpret_cast<T*>(&storage_);
+    }
+
+    void reset() {
+        if (has_value_) {
+            reinterpret_cast<T*>(&storage_)->~T();
+            has_value_ = false;
+        }
+    }
+
+    ~SimpleOptional() {
+        reset();
+    }
+};
+```
+
+**Объяснение:**
+- storage_e` — это "сырая" память, в которой нет объекта.
+- `new (&storage_) T(value);` — создаёт объект в этом месте. Вызывается конструктор!
+- `reinterpret_cast<T*>(&storage_)->~T();` — деструктор нужно вызывать вручную. `delete` нельзя использовать — 
+ память не выделялась через `new`.
+
+- После использования `placement new`, `delete` **использовать нельзя** — память не выделялась через `new`.
+- **Вызывать деструктор вручную**
+- Нужно **обеспечить правильное выравнивание памяти** — через alignas(T).
+
